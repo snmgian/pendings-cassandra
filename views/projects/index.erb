@@ -1,0 +1,9 @@
+<h1><a href='/'>Home</a> / Projects</h1>
+
+<div><a href='/projects/new'>New</a></div>
+
+<div>
+  <% @projects.each do |key, project| %>
+    <p><%= project['name'] %></p>
+  <% end %>
+</div>

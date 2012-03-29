@@ -1,0 +1,30 @@
+<h1><a href='/'>Home</a> / New Task</h1>
+
+<form action='/tasks' method='post'>
+  <div>
+    <label for='name'>Name</label>
+    <input type='text' name='title' id='name' />
+  </div>
+
+  <div>
+    <label for='project'>Project</label>
+    <select id='project' name='project_id'>
+      <option value=''>select ...</option>
+      <% @projects.each do |key, project| %>
+        <option value='<%= key %>'><%= project['name'] %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div>
+    <label for='tags'>Tags</label>
+    <% @tags.each do |key, tag| %>
+      <input type='checkbox' name='tags[]' id='tags' value='<%= key %>'><%= tag['name'] %></input>
+    <% end %>
+  </div>
+
+  <div>
+    <input type="submit" value="Create" />
+  </div>
+</form>
+

@@ -1,0 +1,31 @@
+<%#
+  tasks:
+%>
+<% tasks.each do |key, task| %>
+  <div>
+    <p><%= task['title'] %></p>
+
+    <% if complete %>
+    <p>
+      <form action='/tasks/<%= key %>/complete' method='post'>
+        <input type='submit' value='Complete' />
+      </form>
+    </p>
+    <% end %>
+
+    <% if reject %>
+    <p>
+      <form action='/tasks/<%= key %>/reject' method='post'>
+        <input type='submit' value='Reject' />
+      </form>
+    </p>
+    <% end %>
+
+    <p>
+      <span><%= task['project']['name'] %></span>
+      <% task['tags'].each do |tag| %>
+        <span><%= tag %></span>
+      <% end %>
+    </p>
+  </div>
+<% end %>

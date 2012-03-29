@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Your Pendings</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+
+    <div>
+      <a href='/tasks/new'>New Task</a>
+    </div>
+
+    <h2>Pedings (<%= @count_pending_tasks %>)</h2>
+    <%= erb :'_tasks', :locals => {:tasks => @pending_tasks, :reject => true, :complete => true } %>
+
+    <h2>Completed</h2>
+    <%= erb :'_tasks', :locals => {:tasks => @completed_tasks, :reject => false, :complete => false } %>
+
+    <h2>Rejected</h2>
+    <%= erb :'_tasks', :locals => {:tasks => @rejected_tasks, :reject => false, :complete => false } %>
+
+    <h2>Projects</h2>
+    <a href="/projects">Projects</a>
+    <a href="/projects/new">New</a>
+  </body>
+</html>

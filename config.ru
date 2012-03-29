@@ -1,0 +1,3 @@
+require './pendings'
+
+run Pendings
